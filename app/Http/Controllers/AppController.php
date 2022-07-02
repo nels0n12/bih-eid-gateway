@@ -37,9 +37,9 @@ class AppController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function validateOmang(Request $request)
+    public function validateOmang($id_no)
     {
-        $data = json_decode($this->appService->validate($request->omang));
+        $data = json_decode($this->appService->validate($id_no));
         if ($data->status === 'success') {
             return response()->json([
                 "status" => "success",
@@ -61,13 +61,13 @@ class AppController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function verifyOmang(Request $request)
+    public function verifyOmang($id_no, $tier)
     {
-        $data = (bool)$this->appService->verify($request->omang);
+        $data = (bool)$this->appService->verify($id_no);
         if ($data === true) {
-            $data = json_decode($this->appService->validate($request->omang));
+            $data = json_decode($this->appService->validate($id_no));
 
-            if ($request->tier === 'tier1') {
+            if ($tier === 'tier1') {
                 return response()->json([
                     "status" => "success",
                     "message" => "omang found",

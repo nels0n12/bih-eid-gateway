@@ -17,5 +17,5 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->post('/validate', "AppController@validateOmang");
-$router->post('/verify', "AppController@verifyOmang");
+$router->get('/validate/{id_no}/', "AppController@validateOmang");
+$router->get('/verify/{id_no}/{tier}', "AppController@verifyOmang");

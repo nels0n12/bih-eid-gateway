@@ -75,9 +75,9 @@ $app->configure('services');
 |
 */
 
-$app->middleware([
-    App\Http\Middleware\AuthenticateAccess::class
-]);
+//$app->middleware([
+//    App\Http\Middleware\AuthenticateAccess::class
+//]);
 
 // $app->routeMiddleware([
 //     'auth' => App\Http\Middleware\Authenticate::class,

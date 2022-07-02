@@ -73,7 +73,7 @@ class AppController extends Controller
                     "message" => "omang found",
                     "data" => rand(111111,999999)
                 ]);
-            } elseif ($request->tier === 'tier2') {
+            } elseif ($tier === 'tier2') {
                 return response()->json([
 
                     "status" => "success",
